@@ -40,8 +40,9 @@
                         }
                     ],
                     "samples": [
-                        "play songs by {artist}",
-                        "play music by {artist}"
+                        "riproduci le canzoni di {artist}",
+                        "riproduci la musica di {artist}",
+                        "ascoltiamo {artist}"
                     ]
                 },
                 {
@@ -65,8 +66,8 @@
                         }
                     ],
                     "samples": [
-                        "Play the album {album}",
-                        "Play the album {album} by {artist}"
+                        "riproduci l'album {album}",
+                        "riproduci l'album {album} di {artist}"
                     ]
                 },
                 {
@@ -78,49 +79,44 @@
                         }
                     ],
                     "samples": [
-                        "Play the {playlist} playlist",
-                        "Start the {playlist} playlist"
+                        "riproduci la playlist {playlist}",
+                        "ascoltiamo la playlist {playlist}"
                     ]
                 },
                 {
                     "name": "NaviSonicSongDetails",
                     "slots": [],
                     "samples": [
-                        "What is playing",
-                        "Who is singing",
-                        "Who's singing",
-                        "What album is this song on",
-                        "What album is this on",
-                        "Which album",
-                        "Which album is this song from",
-                        "Which artist is this",
-                        "What band is this",
-                        "Who sings this song",
-                        "Who sings this",
-                        "What song is this",
-                        "What's playing"
+                        "cosa c'è in riproduzione",
+                        "chi sta cantando",
+                        "di chi è questa canzone",
+                        "in che album è questa canzone",
+                        "di quale album è questa canzone",
+                        "quale album",
+                        "chi è l'artista",
+                        "di chi è questa canzone",
+                        "di quale gruppo è questa canzone",
+                        "chi canta",
+                        "chi canta questa canzone",
+                        "che canzone è",
+                        "cosa sta suonando"
                     ]
                 },
                 {
                     "name": "NaviSonicStarSong",
                     "slots": [],
                     "samples": [
-                        "Add this song to my favourites",
-                        "Favourite this song",
-                        "Like this song",
-                        "Add this song to my liked songs",
-                        "Star this song"
+                        "aggiugi la canzone alle preferite",
+                        "mi piace questa canzone",
+                        "aggiungi questa canzone è tra le mie preferite"
                     ]
                 },
                 {
                     "name": "NaviSonicUnstarSong",
                     "slots": [],
                     "samples": [
-                        "Remove this song from favourites",
-                        "I don't like this song",
-                        "Remove the star from this song",
-                        "Delete this song from my favourites",
-                        "Unstar this song"
+                        "rimuovi la canzone dalle mie preferite",
+                        "non mi piace questa canzone"
                     ]
                 },
                 {
@@ -136,21 +132,26 @@
                         }
                     ],
                     "samples": [
-                        "Play the song {song} by the band {artist}",
-                        "Play {song} by the band {artist}",
-                        "Play {song} by {artist}",
-                        "Play the song {song} by the artist {artist}"
+                        "riproduzi {song} di {artist}",
+                        "riproduci {song} degli {artist}",
+                        "rirpoduci {song} dei {artist}",
+                        "ascoltiamo {song} di {artist}",
+                        "ascoltiamo {song} degli {artist}",
+                        "ascoltiamo {song} dei {artist}"
                     ]
                 },
                 {
                     "name": "NaviSonicPlayFavouriteSongs",
                     "slots": [],
                     "samples": [
-                        "Play my starred tracks",
-                        "Play starred tracks",
-                        "Play starred songs",
-                        "Play my starred songs",
-                        "Play my favourite songs"
+                        "rirpoduci le mie canzoni preferite",
+                        "riproduci la mia musica preferita",
+                        "riproduci la musica che mi piace",
+                        "riproduci le canzoni che mi piacciono",
+                        "ascoltiamo le mie canzoni preferite",
+                        "ascoltiamo la mia musica preferita",
+                        "ascoltiamo la musica che mi piace",
+                        "ascoltiamo le canzoni che mi piacciono"
                     ]
                 },
                 {
@@ -170,21 +171,20 @@
                     "name": "NaviSonicPlayMusicRandom",
                     "slots": [],
                     "samples": [
-                        "Play a selection of music",
-                        "Play a mix of tracks",
-                        "Play a mix of songs",
-                        "Play random music",
-                        "Play random songs"
+                        "Riproduci un po di musica",
+                        "ascoltiamo un po di musica",
+                        "riproduci qualcosa",
+                        "ascoltiamo un po di musica in ordine casuale",
+                        "riproduci della musica in ordine casuale"
                     ]
                 },
                 {
                     "name": "NaviSonicRandomiseQueue",
                     "slots": [],
                     "samples": [
-                        "randomise the queue",
-                        "randomise",
-                        "shuffle",
-                        "shuffle the queue"
+                        "attiva casuale",
+                        "attiva l'ordine casuale",
+                        "attiva lo shuffle"
                     ]
                 }
             ],
