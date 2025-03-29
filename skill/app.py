@@ -210,7 +210,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         logger.debug('In LaunchRequestHandler')
 
         connection.ping()
-        speech = 'Ready!'
+        speech = 'Sono pronto!'
 
         handler_input.response_builder.speak(speech).ask(speech)
         return handler_input.response_builder.response
@@ -267,7 +267,7 @@ class HelpHandler(AbstractRequestHandler):
     def handle(self, handler_input: HandlerInput) -> Response:
         logger.debug('In HelpHandler')
 
-        text = 'AskNavidrome lets you interact with media servers that offer a Subsonic compatible A.P.I.'
+        text = 'AskNavidrome ti permette di interagire con il tuo media server attraverso le A.P.I. Subsonic.'
         handler_input.response_builder.speak(text)
 
         return handler_input.response_builder.response
@@ -292,7 +292,7 @@ class NaviSonicPlayMusicByArtist(AbstractRequestHandler):
         artist_lookup = connection.search_artist(artist.value)
 
         if artist_lookup is None:
-            text = f"I couldn't find the artist {artist.value} in the collection."
+            text = f"Non ho trovato canzoni di {artist.value} nella tua libreria."
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -305,7 +305,7 @@ class NaviSonicPlayMusicByArtist(AbstractRequestHandler):
             song_id_list = connection.build_song_list_from_albums(artist_album_lookup, min_song_count)
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_id_list)
-            speech = f'Playing music by: {artist.value}'
+            speech = f'Riproduco le canzoni di: {artist.value}'
             logger.info(speech)
 
             card = {'title': 'AskNavidrome',
@@ -341,7 +341,7 @@ class NaviSonicPlayAlbumByArtist(AbstractRequestHandler):
             artist_lookup = connection.search_artist(artist.value)
 
             if artist_lookup is None:
-                text = f"I couldn't find the artist {artist.value} in the collection."
+                text = f"Non ho trovato canzoni di {artist.value} nella tua libreria."
                 handler_input.response_builder.speak(text).ask(text)
 
                 return handler_input.response_builder.response
@@ -354,7 +354,7 @@ class NaviSonicPlayAlbumByArtist(AbstractRequestHandler):
                 result = [album_result for album_result in artist_album_lookup if album_result.get('title').lower() == album.value.lower()]
 
                 if not result:
-                    text = f"I couldn't find an album called {album.value} by {artist.value} in the collection."
+                    text = f"Non ho trovato l'album {album.value} si {artist.value} nella tua libreria."
                     handler_input.response_builder.speak(text).ask(text)
 
                     return handler_input.response_builder.response
@@ -364,7 +364,7 @@ class NaviSonicPlayAlbumByArtist(AbstractRequestHandler):
                 play_queue.clear()
                 controller.enqueue_songs(connection, play_queue, songs)
 
-                speech = f'Playing {album.value} by: {artist.value}'
+                speech = f'Riproduco l\'album {album.value} di: {artist.value}'
                 logger.info(speech)
                 card = {'title': 'AskNavidrome',
                         'text': speech
@@ -380,7 +380,7 @@ class NaviSonicPlayAlbumByArtist(AbstractRequestHandler):
             result = connection.search_album(album.value)
 
             if result is None:
-                text = f"I couldn't find the album {album.value} in the collection."
+                text = f"Non ho trovato l'album {album.value} nella tua libreria."
                 handler_input.response_builder.speak(text).ask(text)
 
                 return handler_input.response_builder.response
@@ -390,7 +390,7 @@ class NaviSonicPlayAlbumByArtist(AbstractRequestHandler):
                 play_queue.clear()
                 controller.enqueue_songs(connection, play_queue, songs)
 
-                speech = f'Playing {album.value}'
+                speech = f'Riproduco l\'album {album.value}'
                 logger.info(speech)
                 card = {'title': 'AskNavidrome',
                         'text': speech
@@ -423,7 +423,7 @@ class NaviSonicPlaySongByArtist(AbstractRequestHandler):
         artist_lookup = connection.search_artist(artist.value)
 
         if artist_lookup is None:
-            text = f"I couldn't find the artist {artist.value} in the collection."
+            text = f"Non ho trovato l'artista {artist.value} nella tua libreria."
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -438,7 +438,7 @@ class NaviSonicPlaySongByArtist(AbstractRequestHandler):
             song_dets = [item.get('id') for item in song_list if item.get('artistId') == artist_id]
 
             if not song_dets:
-                text = f"I couldn't find a song called {song.value} by {artist.value} in the collection."
+                text = f"Non ho trovato la canzone {song.value} di {artist.value} nella tua libreria."
                 handler_input.response_builder.speak(text).ask(text)
 
                 return handler_input.response_builder.response
@@ -446,7 +446,7 @@ class NaviSonicPlaySongByArtist(AbstractRequestHandler):
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_dets)
 
-            speech = f'Playing {song.value} by {artist.value}'
+            speech = f'Riproduco {song.value} di {artist.value}'
             logger.info(speech)
             card = {'title': 'AskNavidrome',
                     'text': speech
@@ -475,7 +475,7 @@ class NaviSonicPlayPlaylist(AbstractRequestHandler):
         playlist_id = connection.search_playlist(playlist.value)
 
         if playlist_id is None:
-            text = "I couldn't find the playlist " + str(playlist.value) + ' in the collection.'
+            text = "non ho trovato la playlist " + str(playlist.value) + ' nella tua libreria.'
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -485,7 +485,7 @@ class NaviSonicPlayPlaylist(AbstractRequestHandler):
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_id_list)
 
-            speech = 'Playing playlist ' + str(playlist.value)
+            speech = 'Riproduco la playlist ' + str(playlist.value)
             logger.info(speech)
             card = {'title': 'AskNavidrome',
                     'text': speech
@@ -513,7 +513,7 @@ class NaviSonicPlayMusicByGenre(AbstractRequestHandler):
         song_id_list = connection.build_song_list_from_genre(genre.value, min_song_count)
 
         if song_id_list is None:
-            text = f"I couldn't find any {genre.value} songs in the collection."
+            text = f"Non ho trovato nessuna canzone {genre.value} nella tua libreria."
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -523,7 +523,7 @@ class NaviSonicPlayMusicByGenre(AbstractRequestHandler):
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_id_list)
 
-            speech = f'Playing {genre.value} music'
+            speech = f'Riproduco mudica {genre.value}'
             logger.info(speech)
             card = {'title': 'AskNavidrome',
                     'text': speech
@@ -548,7 +548,7 @@ class NaviSonicPlayMusicRandom(AbstractRequestHandler):
         song_id_list = connection.build_random_song_list(min_song_count)
 
         if song_id_list is None:
-            text = "I couldn't find any songs in the collection."
+            text = "Non trovato nessuna canzone nella tua libreria."
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -558,7 +558,7 @@ class NaviSonicPlayMusicRandom(AbstractRequestHandler):
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_id_list)
 
-            speech = 'Playing random music'
+            speech = 'Riproduco le canzoni in ordine casuale'
             logger.info(speech)
             card = {'title': 'AskNavidrome',
                     'text': speech
@@ -583,7 +583,7 @@ class NaviSonicPlayFavouriteSongs(AbstractRequestHandler):
         song_id_list = connection.build_song_list_from_favourites()
 
         if song_id_list is None:
-            text = "You don't have any favourite songs in the collection."
+            text = "Non hai nessuna canzone preferita nella tua libreria."
             handler_input.response_builder.speak(text).ask(text)
 
             return handler_input.response_builder.response
@@ -593,7 +593,7 @@ class NaviSonicPlayFavouriteSongs(AbstractRequestHandler):
             play_queue.clear()
             controller.enqueue_songs(connection, play_queue, song_id_list)
 
-            speech = 'Playing your favourite tracks.'
+            speech = 'Riproduco le tue canzoni preferite.'
             logger.info(speech)
             card = {'title': 'AskNavidrome',
                     'text': speech
@@ -637,7 +637,7 @@ class NaviSonicSongDetails(AbstractRequestHandler):
         artist = play_queue.current_track.artist
         album = play_queue.current_track.album
 
-        text = f'This is {title} by {artist}, from the album {album}'
+        text = f'La canzone è {title} di {artist}, dall\'album {album}'
         handler_input.response_builder.speak(text)
 
         return handler_input.response_builder.response
@@ -889,7 +889,7 @@ class SystemExceptionHandler(AbstractExceptionHandler):
         if get_request_type(handler_input) == 'IntentRequest':
             logger.error(f'Intent Name Was: {get_intent_name(handler_input)}')
 
-        speech = "Sorry, I didn't get that. Can you please say it again!!"
+        speech = "Scusa, non ho capito. Puoi riptere?"
         handler_input.response_builder.speak(speech).ask(speech)
 
         return handler_input.response_builder.response
@@ -915,7 +915,7 @@ class GeneralExceptionHandler(AbstractExceptionHandler):
         if get_request_type(handler_input) == 'IntentRequest':
             logger.error(f'Intent Name Was: {get_intent_name(handler_input)}')
 
-        speech = "Sorry, I didn't get that. Can you please say it again!!"
+        speech = "Scusa, non ho capito. Puoi ripetere?"
         handler_input.response_builder.speak(speech).ask(speech)
 
         return handler_input.response_builder.response
