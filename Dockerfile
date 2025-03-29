@@ -10,7 +10,7 @@ RUN python3 -m venv env
 
 RUN git clone https://github.com/MapoDan/asknavidrome-ita.git
 
-WORKDIR /opt/asknavidrome
+WORKDIR /opt/asknavidrome-ita
 
 RUN source ../env/bin/activate && pip --no-cache-dir install wheel && pip --no-cache-dir install -r skill/requirements-docker.txt
 
@@ -21,9 +21,9 @@ LABEL maintainer="Ross Stewart <rosskouk@gmail.com>"
 RUN apk add python3
 
 COPY --from=build /opt/env /opt/env
-COPY --from=build /opt/asknavidrome/skill /opt/asknavidrome/
+COPY --from=build /opt/asknavidrome-ita/skill /opt/asknavidrome-ita/
 
-WORKDIR /opt/asknavidrome
+WORKDIR /opt/asknavidrome-ita
 
 # Activate Python Virtual Environment
 ENV PATH="/opt/env/bin:$PATH"
