@@ -1,3 +1,5 @@
+Forked from the original repository to localize responses in Italian
+
 # AskNavidrome
 
 [![Documentation Generator](https://github.com/rosskouk/asknavidrome/actions/workflows/build_sphinx_docs.yml/badge.svg?branch=main)](https://github.com/rosskouk/asknavidrome/actions/workflows/build_sphinx_docs.yml) [![Docker Container](https://github.com/rosskouk/asknavidrome/actions/workflows/build_image.yml/badge.svg)](https://github.com/rosskouk/asknavidrome/actions/workflows/build_image.yml)
