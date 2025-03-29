@@ -13,7 +13,7 @@ services:
             - 'NAVI_DEBUG=1'              
         ports:
             - '5000:5000'
-        image: 'ghcr.io/rosskouk/asknavidrome:latest'
+        image: 'ghcr.io/MapoDan/asknavidrome-ita:latest'
         logging:
             driver: "json-file"
             options:
